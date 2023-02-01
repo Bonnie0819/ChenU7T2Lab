@@ -27,7 +27,7 @@ public class UsedCarLot {
         like you did the other addCar method; also note that this method is void
     */
     public void addCar(int indexToAdd, Car carToAdd) {
-        /* IMPLEMENT ME */
+        inventory.add(indexToAdd, carToAdd);
     }
 
     /* "sells" the Car located at indexOfCarToSell which
@@ -43,7 +43,9 @@ public class UsedCarLot {
               removing it from the ArrayList
       */
     public Car sellCarShift(int indexOfCarToSell) {
-        /* IMPLEMENT ME */
+        Car sold = inventory.get(indexOfCarToSell);
+        inventory.remove(indexOfCarToSell);
+        return  sold;
     }
 
     /* "sells" the Car located at indexOfCarToSell,
@@ -57,7 +59,9 @@ public class UsedCarLot {
        This method returns the Car that is being "sold" (replaced with null)
      */
     public Car sellCarNoShift(int indexOfCarToSell) {
-        /* IMPLEMENT ME */
+        Car sold = inventory.get(indexOfCarToSell);
+        inventory.set(indexOfCarToSell, null);
+        return sold;
     }
 
     /* moves Car located at index indexOfCarToMove to index destinationIndex;
@@ -67,7 +71,10 @@ public class UsedCarLot {
                       destinationIndex < inventory.size()
      */
     public void moveCar(int indexOfCarToMove, int destinationIndex) {
-        /* IMPLEMENT ME */
+        Car move = inventory.get(indexOfCarToMove);
+        Car temp = inventory.set(destinationIndex, move);
+        inventory.remove(indexOfCarToMove);
+
     }
 
 }
