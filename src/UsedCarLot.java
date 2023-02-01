@@ -43,9 +43,7 @@ public class UsedCarLot {
               removing it from the ArrayList
       */
     public Car sellCarShift(int indexOfCarToSell) {
-        Car sold = inventory.get(indexOfCarToSell);
-        inventory.remove(indexOfCarToSell);
-        return  sold;
+        return inventory.remove(indexOfCarToSell);
     }
 
     /* "sells" the Car located at indexOfCarToSell,
@@ -59,9 +57,7 @@ public class UsedCarLot {
        This method returns the Car that is being "sold" (replaced with null)
      */
     public Car sellCarNoShift(int indexOfCarToSell) {
-        Car sold = inventory.get(indexOfCarToSell);
-        inventory.set(indexOfCarToSell, null);
-        return sold;
+        return inventory.set(indexOfCarToSell, null);
     }
 
     /* moves Car located at index indexOfCarToMove to index destinationIndex;
@@ -71,9 +67,11 @@ public class UsedCarLot {
                       destinationIndex < inventory.size()
      */
     public void moveCar(int indexOfCarToMove, int destinationIndex) {
-        Car move = inventory.get(indexOfCarToMove);
-        Car temp = inventory.set(destinationIndex, move);
-        inventory.remove(indexOfCarToMove);
+        Car temp = inventory.remove(indexOfCarToMove);
+        inventory.add(destinationIndex, temp);
+
+
+
 
     }
 
